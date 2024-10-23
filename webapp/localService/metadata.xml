@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="WBS_INSTALL" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="WBS_Install" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Project"/>
+                    <PropertyRef Name="Wbs"/>
+                    <PropertyRef Name="FunctionalLocation"/>
+                </Key>
+                <Property Name="Project" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Project Definition" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Wbs" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS Element" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="FunctionalLocation" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Functional Location" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="SoldToParty" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Sold-To-Party" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="EtaDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="ETA Date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="PlannerGroup" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Planner Group" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="WmInstall" Type="Edm.Boolean" sap:unicode="false" sap:label="WM Install" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="SelfInstall" Type="Edm.Boolean" sap:unicode="false" sap:label="Self Install" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ActivityStartDate" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Activity Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ActivityStartTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Activity Start Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="WBS_Notes" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Wbs"/>
+                </Key>
+                <Property Name="Wbs" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="WBS element" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="WbsText" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="WBS Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WbsNotes" Type="Edm.String" sap:unicode="false" sap:label="WBS Notes" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Timestamp" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="WBSText" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TextDesc"/>
+                </Key>
+                <Property Name="TextDesc" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Counter" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="WBS_INSTALL_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="WBS_InstallSet" EntityType="WBS_INSTALL.WBS_Install" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="WBS_NotesSet" EntityType="WBS_INSTALL.WBS_Notes" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="WBSTextSet" EntityType="WBS_INSTALL.WBSText" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://s4fioridev.sagenet.com:8000/sap/opu/odata/sap/WBS_INSTALL/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://s4fioridev.sagenet.com:8000/sap/opu/odata/sap/WBS_INSTALL/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

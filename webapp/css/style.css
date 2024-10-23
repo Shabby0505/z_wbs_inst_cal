@@ -1,0 +1,13 @@
+/* Enter your custom styles here */
+
+.sapMSPCMonthWeek>.sapMSPCMonthWeekNumber {
+    width: 9rem;
+    max-width: 4rem;
+    padding-top: 0.25rem;
+    padding-right: 0.375rem;
+    display: none;
+}
+
+.sapMSPCMonthGrid>:not(.sapMSinglePCGridContent) {
+    margin-left: 0rem;
+}

@@ -1,0 +1,25 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="mySelectDialog"
+		noDataText="No WBS Elements Type Found"
+		title="WBS Elements"
+		search="._handleValueHelpSearch"
+		confirm="._handleValueHelConfirm"
+		cancel=".onDialogClose"
+	
+		multiSelect="false"
+		
+		items="{
+			path: 'wbstextModel>/',
+			sorter: {path : 'Id'}
+		}">
+		<StandardListItem
+			title="{wbstextModel>Id}"
+			description="{wbstextModel>TextDesc}"
+			press="onPressOrderType"
+			type="Active" 
+			  />
+	</SelectDialog>
+</core:FragmentDefinition>

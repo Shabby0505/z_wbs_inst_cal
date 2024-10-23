@@ -1,0 +1,28 @@
+<core:FragmentDefinition
+	xmlns="sap.ui.comp.valuehelpdialog"
+	xmlns:core="sap.ui.core">
+	<!-- <ValueHelpDialog
+		title="Project ID"
+		ok=".onSProjectIdVHOkPress"
+		cancel=".onProjectIdVHCancelPress"
+		key="ProductId"
+		descriptionKey="Name"
+		afterClose=".onProjectIdVHAfterClose"
+		supportRanges="true"
+		supportRangesOnly="true"
+		maxIncludeRanges="1"
+		maxExcludeRanges="0"
+		maxConditions="1"/> -->
+
+		<ValueHelpDialog
+		title="Project ID"
+		ok=".onSProjectIdVHOkPress"
+		cancel=".onProjectIdVHCancelPress"
+		key="ProductId"
+		descriptionKey="Name"
+		supportRanges="true"
+		afterClose=".onProjectIdVHAfterClose"
+		
+		
+		supportRangesOnly="true"/>
+</core:FragmentDefinition>

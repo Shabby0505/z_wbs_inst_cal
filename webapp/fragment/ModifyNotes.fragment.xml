@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:l="sap.ui.layout"
+		xmlns:f="sap.ui.layout.form"
+		xmlns:core="sap.ui.core">
+	<Dialog id="modifyDialog" title="Title">
+		<beginButton>
+			<Button text="Save" type="Emphasized" press="onSaveNotes"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" press="handleDialogCancelButton"/>
+		</endButton>
+		<l:VerticalLayout
+				class="sapUiContentPadding"
+				width="100%">
+			<f:SimpleForm
+					id="appointmentCreateForm"
+					editable="true"
+					layout="ResponsiveGridLayout"
+					singleContainerFullSize="false">
+					<Label text="WBS Element" labelFor="appTitle"/>
+					<Input id="appTitle" editable="false" value="{resultSet>/Wbs}"/>
+
+                    <Label text="WBS Element Text" labelFor="appTitle"/>
+					 <MultiInput id="idWBSElementText"   valueHelpOnly="true"     valueHelpRequest=".onPressWBSDescVH" suggestionItems="{
+													path: 'wbstextModel>/',
+													sorter: {path : 'TextDesc'}
+												}"	>                                           
+											<core:Item key="{wbstextModel>Id}" text="{wbstextModel>TextDesc}" />
+										</MultiInput>
+					<!-- <Input id="idWBSElementText" value="{resultSet>/WbsText}"/> -->
+					<Label text="WBS Element Text" labelFor="appTitle" visible="false"/>
+                    <TextArea id="idUpdateNotes" rows="5" value="{resultSet>/WbsNotes}" editable="false"></TextArea>
+  					<Label text="WBS Element Text" labelFor="appTitle" visible="false"/>
+				    <TextArea  id="idNewTextNotes"  value="" placeholder="Please add the Notes here......"></TextArea>
+					
+			
+			</f:SimpleForm>
+		</l:VerticalLayout>
+	</Dialog>
+</core:FragmentDefinition>
