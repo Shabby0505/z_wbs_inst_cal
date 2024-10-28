@@ -174,12 +174,20 @@ sap.ui.define([
                 this._SoldToDialog.setRangeKeyFields([{
                     label: "Sold To Party",
                     key: "SoldToParty",
-                    type: "string",
+                
                     typeInstance: new TypeString({}, {
                         maxLength: 30
                     })
                 }]);
 
+                this._SoldToDialog.setIncludeRangeOperations([
+                    
+                    FilterOperator.Contains,
+                    FilterOperator.EQ,
+                    FilterOperator.StartsWith,
+                    FilterOperator.EndsWith,
+                   
+                ]);
                 this._SoldToDialog.setTokens(this._SoldToIdMultiInput.getTokens());
                 this._SoldToDialog.open();
 
@@ -233,12 +241,20 @@ sap.ui.define([
                 this._FunctionalLocationIdDialog.setRangeKeyFields([{
                     label: "Functional Location",
                     key: "FunctionalLocation",
-                    type: "string",
+                   
                     typeInstance: new TypeString({}, {
                         maxLength: 30
                     })
                 }]);
-
+                
+                this._FunctionalLocationIdDialog.setIncludeRangeOperations([
+                    
+                    FilterOperator.Contains,
+                    FilterOperator.EQ,
+                    FilterOperator.StartsWith,
+                    FilterOperator.EndsWith,
+                   
+                ]);
                 this._FunctionalLocationIdDialog.setTokens(this._functionalLocationidMultiInput.getTokens());
                 this._FunctionalLocationIdDialog.open();
 
@@ -353,12 +369,24 @@ sap.ui.define([
         
                                         if (oToken.data("range")) {
                                             var oRange = oToken.data("range");
+                                           if(oRange.exclude === true && oRange.operation === "EQ")
+                                           {
                                             oFilter.push(new Filter({
                                                 path: "SoldToParty",
-                                                operator: 'EQ',
+                                                operator: "NE",
                                                 value1: oRange.value1,
                                                 value2: oRange.value2
                                             }));
+                                           }
+                                           else{
+                                            oFilter.push(new Filter({
+                                                path: "SoldToParty",
+                                                operator: FilterOperator.Contains,
+                                                value1: oRange.value1,
+                                                value2: oRange.value2
+                                            }));
+                                           }
+                                          
                                         }
         
                                     });
@@ -380,15 +408,29 @@ sap.ui.define([
         
                                         //     }));
                                         // }
-        
+
                                         if (oToken.data("range")) {
                                             var oRange = oToken.data("range");
-                                            oFilter.push(new Filter({
-                                                path: "FunctionalLocation",
-                                                operator: 'EQ',
-                                                value1: oRange.value1,
-                                                value2: oRange.value2
-                                            }));
+
+
+                                            if(oRange.exclude === true && oRange.operation === "EQ")
+                                                {
+                                                    oFilter.push(new Filter({
+                                                        path: "FunctionalLocation",
+                                                        operator: "NE",
+                                                        value1: oRange.value1,
+                                                        value2: oRange.value2
+                                                    }));
+                                                }
+                                                else{
+                                                    oFilter.push(new Filter({
+                                                        path: "FunctionalLocation",
+                                                        operator: FilterOperator.Contains,
+                                                        value1: oRange.value1,
+                                                        value2: oRange.value2
+                                                    }));
+                                                }
+
                                         }
         
                                     });
@@ -411,12 +453,25 @@ sap.ui.define([
                                         // }
                                         if (oToken.data("range")) {
                                             var oRange = oToken.data("range");
-                                            oFilter.push(new Filter({
-                                                path: "Project",
-                                                operator: 'EQ',
-                                                value1: oRange.value1,
-                                                value2: oRange.value2
-                                            }));
+
+                                            if(oRange.exclude === true && oRange.operation === "EQ")
+                                                {
+                                                    oFilter.push(new Filter({
+                                                        path: "Project",
+                                                        operator:"NE",
+                                                        value1: oRange.value1,
+                                                        value2: oRange.value2
+                                                    }));
+                                                }
+                                                else{
+                                                    oFilter.push(new Filter({
+                                                        path: "Project",
+                                                        operator: FilterOperator.Contains,
+                                                        value1: oRange.value1,
+                                                        value2: oRange.value2
+                                                    }));
+                                                }
+    
                                         }
         
                                     });
@@ -439,12 +494,28 @@ sap.ui.define([
                                         // }
                                         if (oToken.data("range")) {
                                             var oRange = oToken.data("range");
-                                            oFilter.push(new Filter({
-                                                path: "PlannerGroup",
-                                                operator: 'EQ',
-                                                value1: oRange.value1,
-                                                value2: oRange.value2
-                                            }));
+
+
+                                            if(oRange.exclude === true && oRange.operation === "EQ")
+                                                {
+                                                    oFilter.push(new Filter({
+                                                        path: "PlannerGroup",
+                                                        operator: "NE",
+                                                        value1: oRange.value1,
+                                                        value2: oRange.value2
+                                                    }));
+                                                }
+                                                else{
+                                                    oFilter.push(new Filter({
+                                                        path: "PlannerGroup",
+                                                        operator: FilterOperator.Contains,
+                                                        value1: oRange.value1,
+                                                        value2: oRange.value2
+                                                    }));
+                                                }
+
+
+                                      
                                         }
         
                                     });
@@ -600,12 +671,19 @@ sap.ui.define([
                 this._ProjectIDDialog.setRangeKeyFields([{
                     label: "Project ID",
                     key: "Project",
-                    type: "string",
+                 
                     typeInstance: new TypeString({}, {
                         maxLength: 30
                     })
                 }]);
-
+                this._ProjectIDDialog.setIncludeRangeOperations([
+                    
+                    FilterOperator.Contains,
+                    FilterOperator.EQ,
+                    FilterOperator.StartsWith,
+                    FilterOperator.EndsWith,
+                   
+                ]);
                 this._ProjectIDDialog.setTokens(this._projectId1MultiInput.getTokens());
                 this._ProjectIDDialog.open();
 
@@ -658,12 +736,19 @@ sap.ui.define([
                 this._plannerGroupDailog.setRangeKeyFields([{
                     label: "Planner Group",
                     key: "PlannerGroup",
-                    type: "string",
+                   
                     typeInstance: new TypeString({}, {
                         maxLength: 30
                     })
                 }]);
-
+                this._plannerGroupDailog.setIncludeRangeOperations([
+                    
+                    FilterOperator.Contains,
+                    FilterOperator.EQ,
+                    FilterOperator.StartsWith,
+                    FilterOperator.EndsWith,
+                   
+                ]);
                 this._plannerGroupDailog.setTokens(this._plannerGroupIDMultiInput.getTokens());
                 this._plannerGroupDailog.open();
 
@@ -996,12 +1081,26 @@ sap.ui.define([
             },
 
             _handleValueHelpSearch: function (evt) {
+                debugger;
                 var sValue = evt.getParameter("value");
-                var oFilter = new Filter(
-                    "Id",
-                    FilterOperator.Contains,
-                    sValue
-                );
+                // var oFilter = new Filter(
+                //     "TextDesc",
+                //     FilterOperator.Contains,
+                //     sValue
+                // );
+                // var oFilter = new Filter(
+                //     "Id",
+                //     FilterOperator.Contains,
+                //     sValue
+                // );
+
+                var oFilter =  new sap.ui.model.Filter({
+                    filters: [
+                    new sap.ui.model.Filter("TextDesc",FilterOperator.Contains, sValue),
+                    new sap.ui.model.Filter("Id",FilterOperator.Contains ,sValue)
+                    ],
+                    and: false
+                })
                 evt.getSource().getBinding("items").filter([oFilter]);
             },
 

@@ -20,6 +20,6 @@ builder:
           name: Z_WBS_INST_CAL
           description: Installation Calendar Fiori App
           package: ZFIORI_S4
-          transport: DEVK938355
+          transport: DEVK938502
         exclude:
           - /test/

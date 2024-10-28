@@ -11,3 +11,8 @@
 .sapMSPCMonthGrid>:not(.sapMSinglePCGridContent) {
     margin-left: 0rem;
 }
+
+.compValueHelpDialog .sapMFilterPanelContent .sapMPanel>.sapMPanelHdr {
+    padding-left: 1rem;
+    display: none !important;
+}
